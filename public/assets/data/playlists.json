@@ -1,38 +1,50 @@
 [
     {
         "uid": "1",
-        "name": "Playlist 1",
-        "image": "./assets/images/playlist_1.png",
+        "name": "Linking Park",
+        "image": "./assets/images/playlist_1.jpg",
         "songs": []
     },
     {
         "uid": "2",
-        "name": "Playlist 2",
-        "image": "./assets/images/playlist_2.png",
+        "name": "SDP",
+        "image": "./assets/images/playlist_2.jpg",
         "songs": []
     },
     {
         "uid": "3",
-        "name": "Playlist 3",
-        "image": "./assets/images/playlist_3.png",
+        "name": "Night Lovell",
+        "image": "./assets/images/playlist_3.jpg",
         "songs": []
     },
     {
         "uid": "4",
-        "name": "Playlist 4",
-        "image": "./assets/images/playlist_4.png",
+        "name": "Michael Jackson",
+        "image": "./assets/images/playlist_4.jpg",
         "songs": []
     },
     {
         "uid": "5",
-        "name": "Playlist 5",
-        "image": "./assets/images/playlist_5.png",
+        "name": "Kid Ink",
+        "image": "./assets/images/playlist_5.jpg",
         "songs": []
     },
     {
         "uid": "6",
-        "name": "Very Long Playlist Name",
-        "image": "./assets/images/playlist_6.png",
+        "name": "Snoop DoggyDog",
+        "image": "./assets/images/playlist_6.jpg",
+        "songs": []
+    },
+    {
+        "uid": "7",
+        "name": "Some Playlist",
+        "image": "./assets/images/playlist_placeholder.png",
+        "songs": []
+    },
+    {
+        "uid": "8",
+        "name": "Some Playlist 2",
+        "image": "./assets/images/playlist_placeholder.png",
         "songs": []
     }
 ]
