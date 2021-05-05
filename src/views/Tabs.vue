@@ -39,7 +39,6 @@ export default defineComponent({
 });
 </script>
 
-
 <style lang="scss">
 .tab-toolbar {
   padding-top: 51px!important;

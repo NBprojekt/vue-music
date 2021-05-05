@@ -53,7 +53,6 @@ export default defineComponent({
   },
   async created() {
     const playlists = await dataService.getPlaylists();
-    console.log('Playlists', playlists);
     this.playlists = playlists;
 
     const hours = new Date().getHours();
