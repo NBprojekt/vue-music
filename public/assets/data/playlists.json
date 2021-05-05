@@ -1,0 +1,38 @@
+[
+    {
+        "uid": "1",
+        "name": "Playlist 1",
+        "image": "./assets/images/playlist_1.png",
+        "songs": []
+    },
+    {
+        "uid": "2",
+        "name": "Playlist 2",
+        "image": "./assets/images/playlist_2.png",
+        "songs": []
+    },
+    {
+        "uid": "3",
+        "name": "Playlist 3",
+        "image": "./assets/images/playlist_3.png",
+        "songs": []
+    },
+    {
+        "uid": "4",
+        "name": "Playlist 4",
+        "image": "./assets/images/playlist_4.png",
+        "songs": []
+    },
+    {
+        "uid": "5",
+        "name": "Playlist 5",
+        "image": "./assets/images/playlist_5.png",
+        "songs": []
+    },
+    {
+        "uid": "6",
+        "name": "Playlist 6",
+        "image": "./assets/images/playlist_6.png",
+        "songs": []
+    }
+]
