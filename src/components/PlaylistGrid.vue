@@ -1,12 +1,12 @@
 <template>
   <div class="playlist-grid-container">
 
-    <div v-for="item in playlists" :key="item.name" class="playlist-grid-item">
+    <div v-for="playlist in playlists.slice(0, 6)" :key="playlist.uid" class="playlist-grid-item">
       <div class="image">
-        <img :src="item.image" alt="">
+        <img :src="playlist.image" alt="">
       </div>
       <div class="name">
-        {{item.name}}
+        {{playlist.name}}
       </div>
       <ion-ripple-effect type="unbounded" />
     </div>
