@@ -37,3 +37,15 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss">
+.tab-toolbar {
+  padding-top: 51px!important;
+  --border-width: 0!important;
+  
+  ion-icon {
+    margin-left: 15px;
+  }
+}
+</style>
