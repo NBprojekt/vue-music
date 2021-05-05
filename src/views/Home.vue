@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <ion-header>
         <ion-toolbar class="tab-toolbar">
-          <ion-title size="large"> {{ title }} </ion-title>
+          <ion-title size="large"> {{ greeting }} </ion-title>
         
           <ion-buttons slot="end">
             <ion-button router-link="/history" routerDirection="forward" color="dark">
@@ -47,15 +47,24 @@ export default defineComponent({
   },
   data(): any {
     return {
-      title: 'Home',
       playlists: [] as Playlists,
-      test: []
+      greeting: 'Hello'
     }
   },
   async created() {
     const playlists = await dataService.getPlaylists();
     console.log('Playlists', playlists);
     this.playlists = playlists;
+
+    const hours = new Date().getHours();
+     
+    if (hours > 18) {
+      this.greeting = 'Good Evening';
+    } else if (hours > 12) {
+      this.greeting = 'Good Day';
+    } else {
+      this.greeting = 'Good Morning';
+    }
   },
 });
 </script>
