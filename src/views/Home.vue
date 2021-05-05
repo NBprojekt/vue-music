@@ -53,11 +53,9 @@ export default defineComponent({
     }
   },
   async created() {
-    console.log('Created');
-      const playlists = await dataService.getPlaylists();
-      console.log('Playlists', playlists);
-      this.playlists = playlists;
-      this.$forceUpdate();
+    const playlists = await dataService.getPlaylists();
+    console.log('Playlists', playlists);
+    this.playlists = playlists;
   },
 });
 </script>
