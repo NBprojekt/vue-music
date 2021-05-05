@@ -12,9 +12,9 @@
       <ion-toolbar class="static-search">
         <div class="searchbar">
           <ion-icon :icon="searchOutline" size="large" />
-          <span>
+          <div class="text">
             Künstler, Songs oder Podcasts
-          </span>
+          </div>
         </div>
       </ion-toolbar>
     
@@ -49,12 +49,16 @@ export default  {
 <style lang="scss" scoped>
 .static-search {
   position: sticky;
-  top: 0;
-  height: 40px;
+  top: 10px;
+  width: calc(100% - 30px);
+  margin: 10px 15px;
+  border-radius: 4px;
 
   .searchbar {
     display: flex;
     align-items: center;
+    padding: 5px;
+    line-height: 1rem;
   }
 }
 </style>
