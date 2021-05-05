@@ -43,9 +43,13 @@ export default {
 .tab-toolbar {
   padding-top: 51px!important;
   --border-width: 0!important;
+  --ion-toolbar-background: transparent!important;
   
   ion-icon {
-    margin-left: 15px;
+    margin-right: 15px;
   }
+}
+ion-tab-bar {
+  height: 60px;
 }
 </style>
