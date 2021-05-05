@@ -25,11 +25,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
 import { cameraOutline, searchOutline } from 'ionicons/icons';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
-export default  {
+export default defineComponent({
   name: 'Search',
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, },
   setup() {
@@ -43,7 +44,7 @@ export default  {
       title: 'Search',
     }
   },
-}
+});
 </script>
 
 <style lang="scss" scoped>

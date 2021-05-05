@@ -17,11 +17,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
 import { timeOutline, settingsOutline } from 'ionicons/icons';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
-export default  {
+export default defineComponent({
   name: 'Library',
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, },
   setup() {
@@ -35,5 +36,5 @@ export default  {
       title: 'Library',
     }
   },
-}
+});
 </script>

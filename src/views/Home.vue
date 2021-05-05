@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
 import { timeOutline, settingsOutline } from 'ionicons/icons';
 
@@ -31,7 +32,7 @@ import PlaylistGrid from '@/components/PlaylistGrid.vue';
 import DataService from '@/services/data.service';
 const dataService = new DataService();
 
-export default  {
+export default defineComponent({
   name: 'Home',
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, PlaylistGrid },
   setup() {
@@ -44,12 +45,15 @@ export default  {
     return {
       title: 'Home',
       playlists: [] as Playlists,
+      test: []
     }
   },
   async created() {
-    const playlists = await dataService.getPlaylists();
-    console.log('Playlists', playlists);
-    this.playlists = playlists;
+    console.log('Created');
+      const playlists = await dataService.getPlaylists();
+      console.log('Playlists', playlists);
+      this.playlists = playlists;
+      this.$forceUpdate();
   },
-}
+});
 </script>
