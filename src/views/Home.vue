@@ -7,20 +7,18 @@
           <ion-title size="large"> {{ title }} </ion-title>
         
           <ion-buttons slot="end">
-            <ion-button router-link="/history" routerDirection="forward">
+            <ion-button router-link="/history" routerDirection="forward" color="dark">
               <ion-icon :icon="timeOutline" size="large" />
             </ion-button>
-            <ion-button router-link="/settings" routerDirection="forward">
+            <ion-button router-link="/settings" routerDirection="forward" color="dark">
               <ion-icon :icon="settingsOutline" size="large" />
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
-
       <playlist-grid :playlists="playlists"/>
-    
-      <ExploreContainer name="Kurwa" />
+      
     </ion-content>
 
   </ion-page>
@@ -33,7 +31,6 @@ import { timeOutline, settingsOutline } from 'ionicons/icons';
 
 import { Playlists } from '@/types/playlist.type';
 
-import ExploreContainer from '@/components/ExploreContainer.vue';
 import PlaylistGrid from '@/components/PlaylistGrid.vue';
 
 import DataService from '@/services/data.service';
@@ -41,7 +38,7 @@ const dataService = new DataService();
 
 export default defineComponent({
   name: 'Home',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonButton, IonButtons, PlaylistGrid },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonButton, IonButtons, PlaylistGrid },
   setup() {
     return {
       timeOutline,
