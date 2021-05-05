@@ -5,8 +5,15 @@
       <ion-header>
         <ion-toolbar class="tab-toolbar">
           <ion-title size="large"> {{ title }} </ion-title>
-          <ion-icon :icon="timeOutline" size="large" slot="end" />
-          <ion-icon :icon="settingsOutline" size="large" slot="end" />
+        
+          <ion-buttons slot="end">
+            <ion-button router-link="/history" routerDirection="forward">
+              <ion-icon :icon="timeOutline" size="large" />
+            </ion-button>
+            <ion-button router-link="/settings" routerDirection="forward">
+              <ion-icon :icon="settingsOutline" size="large" />
+            </ion-button>
+          </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
@@ -21,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButton, IonButtons } from '@ionic/vue';
 import { timeOutline, settingsOutline } from 'ionicons/icons';
 
 import { Playlists } from '@/types/playlist.type';
@@ -34,7 +41,7 @@ const dataService = new DataService();
 
 export default defineComponent({
   name: 'Home',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, PlaylistGrid },
+  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonButton, IonButtons, PlaylistGrid },
   setup() {
     return {
       timeOutline,
