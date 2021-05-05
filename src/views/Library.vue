@@ -5,8 +5,8 @@
       <ion-header>
         <ion-toolbar class="tab-toolbar">
           <ion-title size="large"> {{ title }} </ion-title>
-          <ion-icon :icon="timeOutline" size="large" slot="end" />
-          <ion-icon :icon="settingsOutline" size="large" slot="end" />
+          <ion-icon :icon="searchOutline" size="large" slot="end" />
+          <ion-icon :icon="addOutline" size="large" slot="end" />
         </ion-toolbar>
       </ion-header>
     
@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
-import { timeOutline, settingsOutline } from 'ionicons/icons';
+import { searchOutline, addOutline } from 'ionicons/icons';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
 export default defineComponent({
@@ -27,8 +27,8 @@ export default defineComponent({
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, },
   setup() {
     return {
-      timeOutline,
-      settingsOutline,
+      searchOutline,
+      addOutline,
     }
   },
   data() {
