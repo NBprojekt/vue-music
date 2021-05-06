@@ -1,5 +1,5 @@
 <template>
-  <div class="small-player-container">
+  <div class="small-player-container" v-bind:class="{ colapsed: isColapsed }">
     <div class="progress-wrapper">
       <div class="progress" :style="`width: ${progress}%`"></div>
     </div>
@@ -33,6 +33,12 @@ import { playOutline, pauseOutline } from 'ionicons/icons';
 export default {
   name: 'SmallPlayer',
   components: { IonIcon },
+  props: {
+    isColapsed:{
+      type: Boolean,
+      required: true
+    },
+  },
   setup() {
     return {
       playOutline, 
@@ -59,10 +65,15 @@ $progress-height: 3px;
 
   margin-top: $progress-height;
   height: $container-height;
+  transition: .3s;
 
   background-color: var(--ion-tab-bar-background);
   border-bottom: 1px solid var(--ion-background-color);
   color: var(--ion-text-color);
+
+  &.colapsed {
+    top: 100%;
+  }
 
   .progress-wrapper {
     position: absolute;
