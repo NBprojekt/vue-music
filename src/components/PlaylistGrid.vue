@@ -16,12 +16,17 @@
 
 <script lang="ts">
 import { IonRippleEffect, } from '@ionic/vue';
+import { Playlists } from '@/types/playlist.type';
+import { PropType } from 'node_modules/vue/dist/vue';
 
 export default {
   name: 'PlaylistGrid',
   components: { IonRippleEffect },
   props: {
-    playlists: null
+    playlists:{
+      type: Object as PropType<Playlists>,
+      required: true
+    },
   },
 }
 </script>
