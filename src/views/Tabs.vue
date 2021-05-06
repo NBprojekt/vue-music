@@ -1,6 +1,10 @@
 <template>
   <ion-page>
+
+
     <ion-tabs>
+      <small-player/>
+      
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/tabs/home">
           <ion-icon :icon="home" />
@@ -18,6 +22,7 @@
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
+
   </ion-page>
 </template>
 
@@ -26,9 +31,11 @@ import { defineComponent } from 'vue';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
 import { home, search, library } from 'ionicons/icons';
 
+import SmallPlayer from '@/components/SmallPlayer.vue';
+
 export default defineComponent({
   name: 'Tabs',
-  components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
+  components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, SmallPlayer },
   setup() {
     return {
       home, 
