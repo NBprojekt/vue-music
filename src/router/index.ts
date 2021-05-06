@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Library.vue')
       }
     ]
-  }
+  },
 ]
 
 const router = createRouter({
