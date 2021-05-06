@@ -3,7 +3,7 @@
 
 
     <ion-tabs>
-      <small-player/>
+      <small-player :isColapsed="false" />
       
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/tabs/home">
