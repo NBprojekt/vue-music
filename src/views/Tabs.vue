@@ -3,9 +3,9 @@
 
 
     <ion-tabs>
-      <small-player :isColapsed="false" />
+      <small-player :isColapsed="!showSmallPlayer"  @click="showSmallPlayer = false" />
       
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar slot="bottom" @click="showSmallPlayer = true">
         <ion-tab-button tab="home" href="/tabs/home">
           <ion-icon :icon="home" />
           <ion-label> Home </ion-label>
@@ -42,7 +42,12 @@ export default defineComponent({
       search, 
       library,
     }
-  }
+  },
+  data() {
+    return {
+      showSmallPlayer: true,
+    }
+  },
 });
 </script>
 

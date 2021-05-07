@@ -1,5 +1,5 @@
 <template>
-  <div class="small-player-container" v-bind:class="{ colapsed: isColapsed }">
+  <div class="small-player-container" :class="{ colapsed: isColapsed }">
     <div class="progress-wrapper">
       <div class="progress" :style="`width: ${progress}%`"></div>
     </div>
