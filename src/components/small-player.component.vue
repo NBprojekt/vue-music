@@ -97,10 +97,9 @@ $progress-height: 3px;
   .metadata {
     flex-grow: 2;
     font-weight: 600;
-    height: 100%;
 
     .title {
-      line-height: 1rem;
+      line-height: 1.5rem;
     }
 
     .author {
