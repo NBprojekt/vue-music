@@ -1,7 +1,7 @@
 <template>
   <div class="playlist-grid-container">
 
-    <div v-for="playlist in playlists.slice(0, 6)" :key="playlist.uid" class="playlist-grid-item">
+    <div v-for="playlist in playlists.slice(0, 6)" :key="playlist" class="playlist-grid-item">
       <div class="image">
         <img :src="playlist.image" alt="">
       </div>
