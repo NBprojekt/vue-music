@@ -23,7 +23,7 @@ import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, } from '@ionic/vue';
 import { timeOutline, settingsOutline } from 'ionicons/icons';
 
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import ExploreContainer from '@/components/explore-container.component.vue';
 
 export default defineComponent({
   name: 'Settings',

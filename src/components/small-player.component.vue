@@ -9,14 +9,13 @@
     </div>
 
     <div class="metadata">
-      <span class="title">
-        In the End 
-        &bull;
-      </span>
-
-      <span class="author">
+      <div class="title">
+        In the End
+      </div>
+      
+      <div class="author">
         Linkin Park
-      </span>
+      </div>
     </div>
 
     <div class="controls">
@@ -97,10 +96,16 @@ $progress-height: 3px;
 
   .metadata {
     flex-grow: 2;
-    font-weight: bold;
+    font-weight: 600;
+    height: 100%;
+
+    .title {
+      line-height: 1rem;
+    }
 
     .author {
       color: rgba(var(--ion-text-color-rgb), .5);
+      font-size: .9rem;
     }
   }
 

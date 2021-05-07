@@ -31,7 +31,7 @@ import { timeOutline, settingsOutline } from 'ionicons/icons';
 
 import { Playlists } from '@/types/playlist.type';
 
-import PlaylistGrid from '@/components/PlaylistGrid.vue';
+import PlaylistGrid from '@/components/playlist-grid.component.vue';
 
 import { dataService } from '@/services/data.service';
 

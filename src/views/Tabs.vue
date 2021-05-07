@@ -31,7 +31,7 @@ import { defineComponent } from 'vue';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
 import { home, search, library } from 'ionicons/icons';
 
-import SmallPlayer from '@/components/SmallPlayer.vue';
+import SmallPlayer from '@/components/small-player.component.vue';
 
 export default defineComponent({
   name: 'Tabs',

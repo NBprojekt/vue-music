@@ -20,7 +20,7 @@
 import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
 import { searchOutline, addOutline } from 'ionicons/icons';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import ExploreContainer from '@/components/explore-container.component.vue';
 
 export default defineComponent({
   name: 'Library',
