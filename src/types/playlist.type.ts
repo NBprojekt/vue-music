@@ -4,6 +4,7 @@ export type Playlist = {
     uid: string;
     name: string;
     image: string;
+    lastPlayed: Date;
     songs: Songs;
 }
 
