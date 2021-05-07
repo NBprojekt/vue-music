@@ -1,7 +1,7 @@
 import { Playlists } from "@/types/playlist.type";
 
 
-export default class DataService {
+export class DataService {
 
     public async getPlaylists(): Promise<Playlists> {
         const response = await fetch('./assets/data/playlists.json');
@@ -12,3 +12,5 @@ export default class DataService {
         return playlists;
     }
 }
+
+export const dataService = new DataService();

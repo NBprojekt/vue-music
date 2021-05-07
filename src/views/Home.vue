@@ -33,8 +33,7 @@ import { Playlists } from '@/types/playlist.type';
 
 import PlaylistGrid from '@/components/PlaylistGrid.vue';
 
-import DataService from '@/services/data.service';
-const dataService = new DataService();
+import { dataService } from '@/services/data.service';
 
 export default defineComponent({
   name: 'Home',
