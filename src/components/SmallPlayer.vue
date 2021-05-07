@@ -65,14 +65,15 @@ $progress-height: 3px;
 
   margin-top: $progress-height;
   height: $container-height;
-  transition: .3s;
+  transition: top .3s;
+  top: 0;
 
   background-color: var(--ion-tab-bar-background);
   border-bottom: 1px solid var(--ion-background-color);
   color: var(--ion-text-color);
 
   &.colapsed {
-    top: 100%;
+    top: $container-height + $progress-height;
   }
 
   .progress-wrapper {
