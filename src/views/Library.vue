@@ -12,20 +12,33 @@
     
       <div class="static-segments">
         <ion-segment @ionChange="segmentChanged($event)" :value="selectedTab">
-          <ion-segment-button value="playlists">
+          <ion-segment-button value="0">
             <ion-label>Playlists</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="artists">
+          <ion-segment-button value="1">
             <ion-label>Artists</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="albums">
+          <ion-segment-button value="2">
             <ion-label>Albums</ion-label>
           </ion-segment-button>
         </ion-segment>
       </div>
 
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="library-items-wrap">
+        <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
+          <h1> Playlists </h1>
+
+          <playlist-list-item v-for="playlist in playlists" :key="playlist" :playlist="playlist" />
+        </div>
+        <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
+          <h1> Artists </h1>
+
+          <artist-list-item v-for="artist in artists" :key="artist" :artist="artist" />
+        </div>
+        <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
+          Albums
+        </div>
+      </div>
 
     </ion-content>
 
@@ -37,9 +50,17 @@ import { defineComponent } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonSegment, IonLabel, IonSegmentButton, } from '@ionic/vue';
 import { searchOutline, addOutline } from 'ionicons/icons';
 
+import { dataService } from '@/services/data.service';
+
+import { Playlists } from '@/types/playlist.type';
+import { Artists } from '@/types/artist.type';
+
+import PlaylistListItem from '@/components/playlist-list-item.component.vue';
+import ArtistListItem from '@/components/artist-list-item.component.vue';
+
 export default defineComponent({
   name: 'Library',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonSegment, IonLabel, IonSegmentButton, },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonSegment, IonLabel, IonSegmentButton, PlaylistListItem, ArtistListItem },
   setup() {
     return {
       searchOutline,
@@ -49,8 +70,14 @@ export default defineComponent({
   data() {
     return {
       title: 'Library',
-      selectedTab: 'playlists',
+      selectedTab: 0,
+      playlists: [] as Playlists,
+      artists: [] as Artists,
     }
+  },
+  async created() {
+    this.playlists = await dataService.getPlaylists();
+    this.artists = await dataService.getArtists();
   },
   methods: {
     segmentChanged(event: CustomEvent) {
@@ -72,6 +99,16 @@ export default defineComponent({
   ion-segment {
     margin: 0 16px;
     width: calc(100% - 16px * 2);
+  }
+}
+
+.library-items-wrap {
+  display: flex;
+
+  .library-item {
+    transition: .3s;
+    flex: 0 0 100%;
+    padding: 0 16px;
   }
 }
 
