@@ -50,16 +50,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 .static-search {
   position: sticky;
-  top: 10px;
-  width: calc(100% - 30px);
-  margin: 10px 15px;
-  border-radius: 4px;
+  top: 0;
+  padding: 10px 0;
+  --background: var(--ion-background-color);
 
   .searchbar {
     display: flex;
     align-items: center;
     padding: 5px;
     line-height: 1rem;
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    border-radius: 4px;
+    background: var(--ion-toolbar-background);
   }
 }
 </style>
