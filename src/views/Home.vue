@@ -51,8 +51,7 @@ export default defineComponent({
     }
   },
   async created() {
-    const playlists = await dataService.getPlaylists();
-    this.playlists = playlists;
+    this.playlists = await dataService.getPlaylists();
 
     const hours = new Date().getHours();
      
