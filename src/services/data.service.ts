@@ -1,3 +1,4 @@
+import { Artists } from "@/types/artist.type";
 import { Playlists } from "@/types/playlist.type";
 
 
@@ -18,7 +19,7 @@ export class DataService {
         return playlists;
     }
 
-    public async getArtists(): Promise<Playlists> {
+    public async getArtists(): Promise<Artists> {
         // Fetch json file
         const response: Response = await fetch('./assets/data/artists.json');
         const playlists: Playlists = await response.json();
