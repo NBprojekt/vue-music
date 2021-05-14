@@ -19,7 +19,7 @@
     </div>
 
     <div class="controls">
-      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" @click="togglePlayState($event)" size="large" />
+      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" @click.stop="togglePlayState()" size="large" />
     </div>
 
   </div>
@@ -53,8 +53,7 @@ export default defineComponent({
     }
   },
   methods: {
-    togglePlayState(event: Event): void {
-      event.preventDefault();
+    togglePlayState(): void {
       this.isPlaying = !this.isPlaying;
     }
   }
