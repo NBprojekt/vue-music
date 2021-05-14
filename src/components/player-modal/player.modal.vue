@@ -54,5 +54,5 @@
   </ion-content>
 </template>
 
-<script lang="ts" src="./player-modal.component.ts"></script>
-<style lang="scss" scoped src="./player-modal.component.scss"></style>
+<script lang="ts" src="./player.modal.ts"></script>
+<style lang="scss" scoped src="./player.modal.scss"></style>
