@@ -28,10 +28,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
+import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, modalController } from '@ionic/vue';
 import { home, search, library } from 'ionicons/icons';
 
 import PlayerSmall from '@/components/player-small.component.vue';
+import PlayerModal from '@/components/player-modal.component.vue';
 
 export default defineComponent({
   name: 'Tabs',
@@ -49,8 +50,13 @@ export default defineComponent({
     }
   },
   methods: {
-    openPlayer() {
+    async openPlayer() {
       console.log('Opening player');
+
+      const modal = await modalController.create({
+        component: PlayerModal,
+      });
+      return modal.present();
     }
   }
 });
