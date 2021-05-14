@@ -26,13 +26,9 @@
 
       <div class="library-items-wrap">
         <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
-          <h1> Playlists </h1>
-
           <playlist-list-item v-for="playlist in playlists" :key="playlist" :playlist="playlist" />
         </div>
         <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
-          <h1> Artists </h1>
-
           <artist-list-item v-for="artist in artists" :key="artist" :artist="artist" />
         </div>
         <div class="library-item" :style="`transform: translateX(-${selectedTab * 100}%)`">
@@ -92,9 +88,10 @@ export default defineComponent({
 
 .static-segments {
   position: sticky;
-  top: 16px;
-  padding: 10px 0;
+  top: -1px;
+  padding: 32px 0 16px;
   background: var(--ion-background-color);
+  z-index: 10;
 
   ion-segment {
     margin: 0 16px;
@@ -103,12 +100,18 @@ export default defineComponent({
 }
 
 .library-items-wrap {
+  position: absolute;
   display: flex;
+  top: 0;
+  height: 100%;
 
   .library-item {
+    height: 100%;
     transition: .3s;
     flex: 0 0 100%;
-    padding: 0 16px;
+    margin-top: 175px;
+    padding: 0 16px 0;
+    overflow-y: auto;
   }
 }
 
