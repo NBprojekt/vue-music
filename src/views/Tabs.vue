@@ -32,7 +32,7 @@ import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, modalCont
 import { home, search, library } from 'ionicons/icons';
 
 import PlayerSmall from '@/components/player-small.component.vue';
-import PlayerModal from '@/components/player-modal.component.vue';
+import PlayerModal from '@/components/player-modal/player-modal.component.vue';
 
 export default defineComponent({
   name: 'Tabs',
