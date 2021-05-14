@@ -40,7 +40,7 @@ jobs:
 
   test-unit:
     if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
-    name: Unit test
+    name: Test:unit
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
