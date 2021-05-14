@@ -30,7 +30,7 @@ import { IonIcon, } from '@ionic/vue';
 import { playOutline, pauseOutline } from 'ionicons/icons';
 
 export default {
-  name: 'SmallPlayer',
+  name: 'PlayerSmall',
   components: { IonIcon },
   props: {
     isColapsed:{

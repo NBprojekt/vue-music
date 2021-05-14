@@ -3,9 +3,9 @@
 
 
     <ion-tabs>
-      <small-player :isColapsed="!showSmallPlayer"  @click="showSmallPlayer = false" />
+      <player-small :isColapsed="!showPlayerSmall"  @click="openPlayer()" />
       
-      <ion-tab-bar slot="bottom" @click="showSmallPlayer = true">
+      <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/tabs/home">
           <ion-icon :icon="home" />
           <ion-label> Home </ion-label>
@@ -31,11 +31,11 @@ import { defineComponent } from 'vue';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
 import { home, search, library } from 'ionicons/icons';
 
-import SmallPlayer from '@/components/small-player.component.vue';
+import PlayerSmall from '@/components/player-small.component.vue';
 
 export default defineComponent({
   name: 'Tabs',
-  components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, SmallPlayer },
+  components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, PlayerSmall },
   setup() {
     return {
       home, 
@@ -45,9 +45,14 @@ export default defineComponent({
   },
   data() {
     return {
-      showSmallPlayer: true,
+      showPlayerSmall: true,
     }
   },
+  methods: {
+    openPlayer() {
+      console.log('Opening player');
+    }
+  }
 });
 </script>
 
