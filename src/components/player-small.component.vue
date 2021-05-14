@@ -19,17 +19,19 @@
     </div>
 
     <div class="controls">
-      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" v-on:click="isPlaying = !isPlaying" size="large" />
+      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" @click="togglePlayState($event)" size="large" />
     </div>
 
   </div>
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
+
 import { IonIcon, } from '@ionic/vue';
 import { playOutline, pauseOutline } from 'ionicons/icons';
 
-export default {
+export default defineComponent({
   name: 'PlayerSmall',
   components: { IonIcon },
   props: {
@@ -50,7 +52,13 @@ export default {
       isPlaying: false,
     }
   },
-}
+  methods: {
+    togglePlayState(event: Event): void {
+      event.preventDefault();
+      this.isPlaying = !this.isPlaying;
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

@@ -17,10 +17,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
+
 import { PropType } from 'node_modules/vue/dist/vue';
 import { Artists } from '@/types/artist.type';
 
-export default {
+export default defineComponent({
   name: 'ArtistListItem',
   components: {},
   props: {
@@ -35,7 +37,7 @@ export default {
       isPlaying: false,
     }
   },
-}
+});
 </script>
 
 <style lang="scss" scoped>

@@ -15,11 +15,13 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
+
 import { IonRippleEffect, } from '@ionic/vue';
 import { Playlists } from '@/types/playlist.type';
 import { PropType } from 'node_modules/vue/dist/vue';
 
-export default {
+export default defineComponent({
   name: 'PlaylistGrid',
   components: { IonRippleEffect },
   props: {
@@ -28,7 +30,7 @@ export default {
       required: true
     },
   },
-}
+});
 </script>
 
 <style lang="scss" scoped>
