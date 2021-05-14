@@ -4,19 +4,19 @@
 
     <ion-tabs>
       <player-small :isColapsed="!showPlayerSmall"  @click="openPlayer()" />
-      
+
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/tabs/home">
           <ion-icon :icon="home" />
           <ion-label> Home </ion-label>
         </ion-tab-button>
-          
-        <ion-tab-button tab="tab2" href="/tabs/search">
+
+        <ion-tab-button tab="search" href="/tabs/search">
           <ion-icon :icon="search" />
           <ion-label> Search </ion-label>
         </ion-tab-button>
-        
-        <ion-tab-button tab="tab3" href="/tabs/library">
+
+        <ion-tab-button tab="library" href="/tabs/library">
           <ion-icon :icon="library" />
           <ion-label> Library </ion-label>
         </ion-tab-button>
@@ -39,8 +39,8 @@ export default defineComponent({
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, PlayerSmall },
   setup() {
     return {
-      home, 
-      search, 
+      home,
+      search,
       library,
     }
   },
@@ -68,7 +68,7 @@ export default defineComponent({
   padding-top: 51px!important;
   --border-width: 0!important;
   --ion-toolbar-background: transparent!important;
-  
+
   ion-icon {
     margin-right: 15px;
   }
