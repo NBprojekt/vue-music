@@ -55,6 +55,7 @@ export default defineComponent({
 
       const modal = await modalController.create({
         component: PlayerModal,
+        swipeToClose: true,
       });
       return modal.present();
     }
