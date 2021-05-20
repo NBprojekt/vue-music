@@ -1,24 +1,24 @@
 
 import { defineComponent } from 'vue';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonTitle, 
-  IonToolbar, 
-  IonIcon, 
-  IonButtons, 
-  IonRange, 
-  modalController  
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonIcon,
+  IonButtons,
+  IonRange,
+  modalController
 } from '@ionic/vue';
-import { 
-  chevronDownOutline, 
-  ellipsisHorizontalOutline, 
-  shuffleOutline, 
-  playSkipBackOutline, 
-  playCircle, 
-  pauseCircle, 
-  playSkipForwardOutline, 
-  repeatOutline, 
+import {
+  chevronDownOutline,
+  ellipsisHorizontalOutline,
+  shuffleOutline,
+  playSkipBackOutline,
+  playCircle,
+  pauseCircle,
+  playSkipForwardOutline,
+  repeatOutline,
 } from 'ionicons/icons';
 
 export default defineComponent({
@@ -30,17 +30,20 @@ export default defineComponent({
       ellipsisHorizontalOutline,
       shuffleOutline,
       playSkipBackOutline,
-      playCircle, 
+      playCircle,
       pauseCircle,
-      playSkipForwardOutline, 
+      playSkipForwardOutline,
       repeatOutline,
     }
   },
   data() {
     return {
       isPlaying: false,
-      showUi: true, 
-      showCanvas: false, 
+      isShuffling: false,
+      isRepeating: false,
+      isRepeatingOnlyOne: false,
+      showUi: true,
+      showCanvas: false,
     }
   },
   methods: {
@@ -54,7 +57,30 @@ export default defineComponent({
       if (!this.showCanvas) return;
       this.showUi = !this.showUi;
       console.log('Show ui', this.showUi);
-      
-    }
+    },
+    togglePlaying(): void {
+      this.isPlaying = !this.isPlaying;
+      console.log('Toggle playing', this.isPlaying);
+    },
+    toggleShuffle(e: any): void {
+      this.isShuffling = !this.isShuffling;
+      e.target.classList.toggle('active');
+      console.log('Toggle shuffle', this.isShuffling);
+    },
+    toggleRepeat(e: any): void {
+      if (!this.isRepeating) {
+        this.isRepeating = true;
+        e.target.classList.add('active');
+      } else if (!this.isRepeatingOnlyOne) {
+        this.isRepeatingOnlyOne = true;
+        e.target.classList.add('one-more');
+      } else {
+        this.isRepeating = false;
+        e.target.classList.remove('active');
+        this.isRepeatingOnlyOne = false;
+        e.target.classList.remove('one-more');
+      }
+      console.log('Toggle repeat', [this.isRepeating, this.isRepeatingOnlyOne]);
+    },
   },
 });

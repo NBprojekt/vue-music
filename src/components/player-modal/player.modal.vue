@@ -30,24 +30,32 @@
         <div class="title">
           In the End
         </div>
-        
+
         <div class="author">
           Linkin Park
         </div>
       </div>
 
-      <div class="slider"> 
+      <div class="slider">
         <ion-range color="primary" />
         <div class="time"> 2:13 </div>
         <div class="length"> 3:54 </div>
       </div>
 
       <div class="controls">
-        <ion-icon :icon="shuffleOutline" class="x1" :class="{ active: true }" />
-        <ion-icon :icon="playSkipBackOutline" class="x2" />
-        <ion-icon :icon="isPlaying ? pauseCircle : playCircle" class="x3" @click="isPlaying = !isPlaying" />
-        <ion-icon :icon="playSkipForwardOutline" class="x2" />
-        <ion-icon :icon="repeatOutline" class="x1" :class="{ active: true, 'one-more': true }" />
+        <ion-icon class="x1"
+          :icon="shuffleOutline"
+          @click="toggleShuffle($event)" />
+        <ion-icon class="x2"
+          :icon="playSkipBackOutline" />
+        <ion-icon class="x3"
+          :icon="isPlaying ? pauseCircle : playCircle"
+          @click="togglePlaying()" />
+        <ion-icon class="x2"
+          :icon="playSkipForwardOutline" />
+        <ion-icon class="x1"
+          :icon="repeatOutline"
+          @click="toggleRepeat($event)" />
       </div>
     </section>
 
