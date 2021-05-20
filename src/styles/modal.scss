@@ -1,0 +1,15 @@
+ion-modal{
+  &.background-blur {
+    --background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+
+    ion-content {
+      --background: rgba(0, 0, 0, 0);
+    }
+  }
+  &.fullscreen {
+    --width: 100%;
+    --height: 100%;
+    --border-radius: 0;
+  }
+}

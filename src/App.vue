@@ -26,3 +26,5 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" src="./styles/modal.scss"></style>
