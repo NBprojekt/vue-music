@@ -45,7 +45,7 @@ export default defineComponent({
       isRepeating: false,
       isRepeatingOnlyOne: false,
       showUi: true,
-      showCanvas: false,
+      showCanvas: true,
     }
   },
   methods: {
