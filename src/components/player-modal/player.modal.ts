@@ -1,5 +1,5 @@
 
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import {
   IonContent,
   IonHeader,
@@ -21,10 +21,14 @@ import {
   repeatOutline,
 } from 'ionicons/icons';
 
+import SongsModal from '../song-modal/song.modal.vue';
+
 export default defineComponent({
   name: 'PlayerModal',
   components: { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonButtons, IonRange, },
   setup() {
+    const outlet: any = inject("routerOutlet");
+
     return {
       chevronDownOutline,
       ellipsisHorizontalOutline,
@@ -34,6 +38,7 @@ export default defineComponent({
       pauseCircle,
       playSkipForwardOutline,
       repeatOutline,
+      outlet,
     }
   },
   data() {
@@ -50,8 +55,17 @@ export default defineComponent({
     dismissModal(): void {
       modalController.dismiss();
     },
-    openOptions(): void {
+    async openOptions(): Promise<void> {
       console.log('Open options');
+      // use the last presenting element
+      const top = (await modalController.getTop()) || this.outlet.value.$el;
+
+      const modal = await modalController.create({
+        component: SongsModal,
+        swipeToClose: true,
+        presentingElement: top,
+      });
+      return modal.present();
     },
     toggleUi(): void {
       if (!this.showCanvas) return;
