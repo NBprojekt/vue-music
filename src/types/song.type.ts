@@ -1,6 +1,6 @@
 export type Song = {
     uid: string;
-    name: string;
+    title: string;
     author: string;
     file: string;
     length?: number;

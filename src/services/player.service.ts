@@ -6,7 +6,7 @@ export class PlayerService {
     public getCurrentSong(): Song {
         return {
           uid: '123a3sHn64dGer',
-          name: 'In the End',
+          title: 'In the End',
           author: 'Linking Park',
           file: '',
           length: 240,
