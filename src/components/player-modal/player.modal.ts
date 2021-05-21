@@ -21,12 +21,16 @@ import {
   repeatOutline,
 } from 'ionicons/icons';
 
+import { playerService } from '@/services/player.service';
+
 import SongsModal from '../song-modal/song.modal.vue';
 
 export default defineComponent({
   name: 'PlayerModal',
   components: { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonButtons, IonRange, },
   setup() {
+    const currentSong = playerService.getCurrentSong();
+
     return {
       chevronDownOutline,
       ellipsisHorizontalOutline,
@@ -36,6 +40,7 @@ export default defineComponent({
       pauseCircle,
       playSkipForwardOutline,
       repeatOutline,
+      currentSong,
     }
   },
   data() {

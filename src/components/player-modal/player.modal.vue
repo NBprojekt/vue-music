@@ -16,11 +16,11 @@
 
     <section class="background">
       <div class="cover" :class="{ hide: showCanvas }">
-        <img src="/assets/images/playlist_1.jpg" alt="" />
+        <img :src="currentSong.image" alt="" />
       </div>
 
       <div class="canvas" :class="{ hide: !showCanvas }"  @click="toggleUi">
-        <img src="/assets/videos/test.gif" alt="" />
+        <img :src="currentSong.canvas" alt="" />
         <div class="backdrop" :class="{ hide: !showUi }" />
       </div>
     </section>
@@ -28,18 +28,18 @@
     <section class="ui" :class="{ hide: !showUi }">
       <div class="metadata">
         <div class="title">
-          In the End
+          {{currentSong.title}}
         </div>
 
         <div class="author">
-          Linkin Park
+          {{currentSong.author}}
         </div>
       </div>
 
       <div class="slider">
         <ion-range color="primary" />
         <div class="time"> 2:13 </div>
-        <div class="length"> 3:54 </div>
+        <div class="length"> {{currentSong.length}} </div>
       </div>
 
       <div class="controls">
