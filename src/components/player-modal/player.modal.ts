@@ -68,7 +68,7 @@ export default defineComponent({
       return modal.present();
     },
     toggleUi(): void {
-      if (!this.showCanvas) return;
+      if (!this.showCanvas || !this.currentSong.canvas) return;
       this.showUi = !this.showUi;
       console.log('Show ui', this.showUi);
     },

@@ -15,11 +15,11 @@
   <ion-content fullscreen>
 
     <section class="background">
-      <div class="cover" :class="{ hide: showCanvas }">
+      <div class="cover" :class="{ hide: showCanvas && currentSong.canvas }">
         <img :src="currentSong.image" alt="" />
       </div>
 
-      <div class="canvas" :class="{ hide: !showCanvas }"  @click="toggleUi">
+      <div class="canvas" :class="{ hide: !showCanvas || !currentSong.canvas }"  @click="toggleUi">
         <img :src="currentSong.canvas" alt="" />
         <div class="backdrop" :class="{ hide: !showUi }" />
       </div>

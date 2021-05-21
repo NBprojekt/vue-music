@@ -11,7 +11,7 @@ export class PlayerService {
           file: '',
           length: 240,
           image: '/assets/images/playlist_1.jpg',
-          canvas: '/assets/videos/test.gif',
+          // canvas: '/assets/videos/test.gif',
         };
     }
 
