@@ -3,6 +3,7 @@ export type Song = {
     name: string;
     author: string;
     file: string;
+    length?: number;
     image: string;
     canvas?: string;
 }
