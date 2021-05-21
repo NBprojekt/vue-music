@@ -63,7 +63,10 @@ export default defineComponent({
       const modal = await modalController.create({
         component: SongsModal,
         swipeToClose: true,
-        cssClass: 'background-blur fullscreen'
+        cssClass: 'background-blur fullscreen',
+        componentProps: {
+          song: this.currentSong,
+        },
       });
       return modal.present();
     },

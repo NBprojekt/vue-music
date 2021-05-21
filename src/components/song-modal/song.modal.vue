@@ -1,6 +1,6 @@
 <template>
   <ion-content fullscreen>
-    Song
+    Song {{song.title}}
   </ion-content>
 </template>
 
