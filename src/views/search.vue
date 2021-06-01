@@ -1,11 +1,11 @@
 <template>
   <ion-page>
-    
+
     <ion-content :fullscreen="true">
       <ion-header>
         <ion-toolbar class="tab-toolbar">
           <ion-title size="large"> {{ title }} </ion-title>
-          <ion-icon :icon="cameraOutline" size="large" slot="end" />
+          <ion-icon :icon="cameraOutline" @click="openQrCodeModal" size="large" slot="end" />
         </ion-toolbar>
       </ion-header>
 
@@ -17,7 +17,7 @@
           </div>
         </div>
       </ion-toolbar>
-    
+
       <ExploreContainer name="Kurwa" />
     </ion-content>
 
@@ -25,18 +25,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, } from '@ionic/vue';
+import { defineComponent, inject } from 'vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, modalController, } from '@ionic/vue';
 import { cameraOutline, searchOutline } from 'ionicons/icons';
 import ExploreContainer from '@/components/explore-container.component.vue';
+import QrCodeModal from '@/components/qr-code-modal/qr-code.modal.vue';
 
 export default defineComponent({
   name: 'Search',
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, },
   setup() {
+    const outlet: any = inject("routerOutlet");
+
+    const openQrCodeModal = async () => {
+      const top = outlet.value.$el;
+
+      const modal = await modalController.create({
+        component: QrCodeModal,
+        swipeToClose: true,
+        presentingElement: top,
+      });
+      return modal.present();
+    };
+
     return {
       cameraOutline,
       searchOutline,
+      openQrCodeModal,
     }
   },
   data() {

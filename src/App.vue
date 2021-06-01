@@ -18,9 +18,8 @@ export default defineComponent({
     IonRouterOutlet
   },
   setup() {
-    // provide the value in the component hierarchy
     const routerOuteletRef = ref(null);
-    provide("routerOutlet", routerOuteletRef);
+    provide('routerOutlet', routerOuteletRef);
 
     return { routerOuteletRef };
   },
