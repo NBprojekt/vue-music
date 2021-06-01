@@ -27,7 +27,15 @@ import SongsModal from '../song-modal/song.modal.vue';
 
 export default defineComponent({
   name: 'PlayerModal',
-  components: { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonButtons, IonRange, },
+  components: {
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonIcon,
+    IonButtons,
+    IonRange,
+  },
   setup() {
     const currentSong = playerService.getCurrentSong();
 
