@@ -11,13 +11,13 @@ jobs:
   lint:
     if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
     name: Linter
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
       with:
-        node-version: 12.x
+        node-version: '14'
     - name: Install dependencies
       run: npm ci
     - name: Lint
@@ -26,13 +26,13 @@ jobs:
   build:
     if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
       with:
-        node-version: 12.x
+        node-version: '14'
     - name: Install dependencies
       run: npm ci
     - name: Build production
@@ -41,14 +41,14 @@ jobs:
   test-unit:
     if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
     name: Test:unit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     continue-on-error: true
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
       with:
-        node-version: 12.x
+        node-version: '14'
     - name: Install dependencies
       run: npm ci
     - name: Unit tests
