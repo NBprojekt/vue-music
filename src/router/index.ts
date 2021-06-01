@@ -9,11 +9,11 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/settings',
-    component: () => import('@/views/settings.vue')
+    component: () => import('../views/settings.vue')
   },
   {
     path: '/history',
-    component: () => import('@/views/history.vue')
+    component: () => import('../views/history.vue')
   },
   {
     path: '/tabs/',
@@ -25,15 +25,15 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'home',
-        component: () => import('@/views/home.vue')
+        component: () => import('../views/home.vue')
       },
       {
         path: 'search',
-        component: () => import('@/views/search.vue')
+        component: () => import('../views/search.vue')
       },
       {
         path: 'library',
-        component: () => import('@/views/library.vue')
+        component: () => import('../views/library.vue')
       }
     ]
   },
