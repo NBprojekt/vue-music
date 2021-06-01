@@ -12,7 +12,7 @@
     <ion-toolbar color="light">
       <ion-buttons class="close-button">
         <ion-button color="dark" @click="dismissModal()">
-          SAVE DRAFT
+          Close
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
