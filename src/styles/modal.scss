@@ -1,7 +1,7 @@
 ion-modal{
   &.background-blur {
     --background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 
     ion-content {
       --background: rgba(0, 0, 0, 0);
