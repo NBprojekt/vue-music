@@ -87,5 +87,5 @@ jobs:
         token: ${{ secrets.DEPLOY_TOKEN }}
         branch: github-pages
         folder: dist/
-        commit-message: 'Deploy vue music ${{ env.version }}'
+        commit-message: 'deploy vue music ${{ env.version }}'
         clean: true
