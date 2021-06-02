@@ -1,5 +1,5 @@
 
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import {
   IonContent,
   IonHeader,
@@ -26,9 +26,16 @@ export default defineComponent({
     IonButton,
   },
   setup() {
+    const videoElement = ref(null);
+
     return {
       closeOutline,
+      videoElement,
     }
+  },
+  mounted() {
+    console.log('Mounted', this.$el, this.videoElement);
+    this.openCam(this.videoElement);
   },
   data() {
     return {
@@ -38,5 +45,15 @@ export default defineComponent({
     dismissModal(): void {
       modalController.dismiss();
     },
+    async openCam(videoElementRef: any) {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: 'environment',
+        },
+      });
+
+      videoElementRef.src = stream;
+      videoElementRef.play();
+    }
   },
 });

@@ -12,11 +12,12 @@
     <div class="background">
       <!-- // TODO: Add camera feed -->
       <div class="camera-feed">
+        <video ref="videoElement" playsinline="true" />
         <div class="focus">
           <div class="hint">
             Point the camera on the center of the screen
             <br/>
-            <ion-button color="transparent">
+            <ion-button color="transparent" @click="openCamera()">
               Select Photo
             </ion-button>
           </div>
