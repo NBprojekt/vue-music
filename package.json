@@ -1,5 +1,6 @@
 {
   "name": "vue-music",
+  "description": "Music app UI written in vue, for practice purposes only",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -39,6 +40,5 @@
     "sass-loader": "^10.1.1",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
-  },
-  "description": "An Ionic project"
+  }
 }
