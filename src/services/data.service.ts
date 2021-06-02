@@ -6,7 +6,7 @@ export class DataService {
 
     public async getPlaylists(): Promise<Playlists> {
         // Fetch json file
-        const response: Response = await fetch('./assets/data/playlists.json');
+        const response: Response = await fetch('/assets/data/playlists.json');
         const playlists: Playlists = await response.json();
 
         // Map iso string to date object
@@ -21,7 +21,7 @@ export class DataService {
 
     public async getArtists(): Promise<Artists> {
         // Fetch json file
-        const response: Response = await fetch('./assets/data/artists.json');
+        const response: Response = await fetch('/assets/data/artists.json');
         const playlists: Playlists = await response.json();
 
         // Map iso string to date object
