@@ -7,8 +7,12 @@ import {
   IonToolbar,
   IonButtons,
   IonButton,
+  IonIcon,
   modalController
 } from '@ionic/vue';
+import {
+  closeOutline,
+} from 'ionicons/icons';
 
 export default defineComponent({
   name: 'QrCodeModal',
@@ -16,12 +20,14 @@ export default defineComponent({
     IonContent,
     IonHeader,
     IonTitle,
+    IonIcon,
     IonToolbar,
     IonButtons,
     IonButton,
   },
   setup() {
     return {
+      closeOutline,
     }
   },
   data() {
