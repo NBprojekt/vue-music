@@ -44,11 +44,11 @@ jobs:
     - name: Get version
       run: cat package.json | jq -r '.version'
     - name: Upload build result
-        uses: actions/upload-artifact@v2
-        with:
-          name: vue-music-${{ env.version }}
-          path: dist/
-          retention-days: 3
+      uses: actions/upload-artifact@v2
+      with:
+        name: vue-music-${{ env.version }}
+        path: dist/
+        retention-days: 3
 
   test-unit:
     needs: [build]
