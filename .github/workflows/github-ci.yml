@@ -10,10 +10,11 @@ on:
 jobs:
   lint:
     if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
-    name: Linter
+    name: '👀 lint'
     runs-on: ubuntu-16.04
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
@@ -24,11 +25,14 @@ jobs:
       run: npm run lint
 
   build:
-    if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
-    name: Build
+    needs: [lint]
+    name: '⚙️build'
     runs-on: ubuntu-16.04
+    env:
+      version: v0.0.0
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
@@ -37,14 +41,22 @@ jobs:
       run: npm ci
     - name: Build production
       run: npm run build
+    - name: Get version
+      run: cat package.json | jq -r '.version'
+    - name: Upload build result
+        uses: actions/upload-artifact@v2
+        with:
+          name: vue-music-${{ env.version }}
+          path: dist/
+          retention-days: 3
 
   test-unit:
-    if: "!(contains(github.event.head_commit.message, 'skip ci') || github.event.pull_request.draft)"
-    name: Test:unit
+    needs: [build]
+    name: '🧪 test: unit'
     runs-on: ubuntu-16.04
-    continue-on-error: true
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
@@ -53,3 +65,19 @@ jobs:
       run: npm ci
     - name: Unit tests
       run: npm run test:unit
+
+  deploy:
+    needs: [test-unit]
+    name: '🚀 deploy: github-pages'
+    runs-on: ubuntu-16.04
+    env:
+      version: v0.0.0
+    steps:
+    - name: Download build result
+      uses: actions/download-artifact@v2
+      with:
+        name: vue-music-${{ env.version }}
+    - name: Test
+      run: |
+        ls -al
+        ls -al vue-music-${{ env.version }}
