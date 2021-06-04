@@ -66,7 +66,7 @@ jobs:
 
   test-e2e:
     needs: [build]
-    name: '🧪 test: e2e'
+    name: '🔬 test: e2e'
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
