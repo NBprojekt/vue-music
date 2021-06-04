@@ -26,7 +26,7 @@ jobs:
 
   build:
     needs: [lint]
-    name: '⚙️build'
+    name: '⚙️ build'
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
