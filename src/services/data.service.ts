@@ -9,8 +9,11 @@ export class DataService {
         const response: Response = await fetch(url);
         const playlists: Playlists = await response.json();
 
-        // Map iso string to date object
-        playlists.map(x => x.lastPlayed = new Date(x.lastPlayed));
+        // Map iso string to date object and relative image url
+        playlists.map(x => {
+          x.lastPlayed = new Date(x.lastPlayed);
+          x.image = x.image.replace('/', process.env.VUE_APP_BASE_HREF);
+        });
 
         // Order playlists desc by last played date
         playlists.sort((a, b) => a.lastPlayed < b.lastPlayed ? 1 : -1);
@@ -25,8 +28,11 @@ export class DataService {
         const response: Response = await fetch(url);
         const playlists: Playlists = await response.json();
 
-        // Map iso string to date object
-        playlists.map(x => x.lastPlayed = new Date(x.lastPlayed));
+        // Map iso string to date object and relative image url
+        playlists.map(x => {
+          x.lastPlayed = new Date(x.lastPlayed);
+          x.image = x.image.replace('/', process.env.VUE_APP_BASE_HREF);
+        });
 
         // Order playlists desc by last played date
         playlists.sort((a, b) => a.lastPlayed < b.lastPlayed ? 1 : -1);
