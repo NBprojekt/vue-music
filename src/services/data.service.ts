@@ -1,12 +1,12 @@
 import { Artists } from "@/types/artist.type";
 import { Playlists } from "@/types/playlist.type";
 
-
 export class DataService {
 
     public async getPlaylists(): Promise<Playlists> {
         // Fetch json file
-        const response: Response = await fetch('/assets/data/playlists.json');
+        const url = `${process.env.VUE_APP_BASE_HREF}assets/data/playlists.json`;
+        const response: Response = await fetch(url);
         const playlists: Playlists = await response.json();
 
         // Map iso string to date object
@@ -21,7 +21,8 @@ export class DataService {
 
     public async getArtists(): Promise<Artists> {
         // Fetch json file
-        const response: Response = await fetch('/assets/data/artists.json');
+        const url = `${process.env.VUE_APP_BASE_HREF}assets/data/playlists.json`;
+        const response: Response = await fetch(url);
         const playlists: Playlists = await response.json();
 
         // Map iso string to date object

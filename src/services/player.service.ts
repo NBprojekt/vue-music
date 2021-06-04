@@ -10,8 +10,8 @@ export class PlayerService {
           author: 'Linking Park',
           file: '',
           length: 240,
-          image: '/assets/images/playlist_1.jpg',
-          // canvas: '/assets/videos/test.gif',
+          image: `${process.env.VUE_APP_BASE_HREF}assets/images/playlist_1.jpg`,
+          // canvas: `${process.env.VUE_APP_BASE_HREF}assets/videos/test.gif`,
         };
     }
 
