@@ -53,7 +53,7 @@ export default defineComponent({
           },
         });
 
-        videoElementRef.src = stream;
+        videoElementRef.srcObject = stream;
         videoElementRef.play();
       } catch(e) {
         console.log(e);
