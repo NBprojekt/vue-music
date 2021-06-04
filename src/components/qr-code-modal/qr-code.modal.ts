@@ -8,7 +8,8 @@ import {
   IonButtons,
   IonButton,
   IonIcon,
-  modalController
+  modalController,
+  alertController,
 } from '@ionic/vue';
 import {
   closeOutline,
@@ -34,7 +35,6 @@ export default defineComponent({
     }
   },
   mounted() {
-    console.log('Mounted', this.$el, this.videoElement);
     this.openCam(this.videoElement);
   },
   data() {
@@ -46,14 +46,25 @@ export default defineComponent({
       modalController.dismiss();
     },
     async openCam(videoElementRef: any) {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: 'environment',
-        },
-      });
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: 'environment',
+          },
+        });
 
-      videoElementRef.src = stream;
-      videoElementRef.play();
+        videoElementRef.src = stream;
+        videoElementRef.play();
+      } catch(e) {
+        console.log(e);
+
+        const alert = await alertController.create({
+          header: 'Failed to access camera.',
+          message: e,
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
     }
   },
 });
