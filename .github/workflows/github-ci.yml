@@ -81,7 +81,7 @@ jobs:
       run: npm run test:e2e -- --headless
 
   deploy:
-    needs: [test-unit]
+    needs: [test-unit, test-e2e]
     name: '🚀 deploy: github-pages'
     runs-on: ubuntu-20.04
     steps:
