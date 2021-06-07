@@ -61,6 +61,10 @@
   description: "Related to continuous integration and delivery"
   color: 6F57DB
 
+- name: "Feature"
+  description: "Pull request or issue that brings a new feature"
+  color: 0E8A16
+
 - name: "Security"
   description: "Pull requests or issues that address a security vulnerability"
   color: EE0701
