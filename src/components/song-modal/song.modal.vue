@@ -17,17 +17,20 @@
       </div>
 
       <div class="controls">
-        <div class="control"
+        <div
+            :class="`control ${isShuffling ? 'active' : ''}`"
             @click="toggleShuffle($event)">
           <ion-icon :icon="shuffleOutline" />
           <p> Shuffle </p>
         </div>
-        <div class="control"
+        <div
+            :class="`control ${isRepeating ? 'active' : ''} ${isRepeatingOnlyOne ? 'one-more' : ''}`"
             @click="toggleRepeat($event)">
           <ion-icon :icon="repeatOutline" />
           <p> Repeat </p>
         </div>
-        <div class="control"
+        <div
+            class="control"
             @click="openPlaylist()">
           <ion-icon :icon="listOutline"/>
           <p> Open Queue </p>
