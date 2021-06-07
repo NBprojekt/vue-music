@@ -1,19 +1,20 @@
 <template>
+  <div class="small-player-container" :class="{ colapsed: isCollapsed || !song }">
     <div class="progress-wrapper">
       <div class="progress" :style="`width: ${progress}%`"></div>
     </div>
 
     <div class="image">
-      <img src="/assets/images/playlist_1.jpg" alt="" />
+      <img :src="song?.image" alt="" />
     </div>
 
     <div class="metadata">
       <div class="title">
-        In the End
+        {{ song?.title }}
       </div>
 
       <div class="author">
-        Linkin Park
+        {{ song?.author }}
       </div>
     </div>
 
