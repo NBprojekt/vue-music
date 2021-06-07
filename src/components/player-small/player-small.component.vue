@@ -19,7 +19,7 @@
     </div>
 
     <div class="controls">
-      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" @click.stop="togglePlayState()" size="large" />
+      <ion-icon :icon="!isPlaying ? playOutline : pauseOutline" @click.stop="togglePlaying()" size="large" />
     </div>
 
   </div>

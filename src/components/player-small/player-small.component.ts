@@ -28,6 +28,8 @@ export default defineComponent({
         this.song = _song;
       }
     });
+
+    playerService.isPlaying().subscribe(x => this.isPlaying = x);
   },
   data() {
     return {
@@ -37,8 +39,8 @@ export default defineComponent({
     }
   },
   methods: {
-    togglePlayState(): void {
-      this.isPlaying = !this.isPlaying;
+    togglePlaying(): void {
+      playerService.togglePlaying();
     },
   }
 });
