@@ -7,7 +7,7 @@ export default defineComponent({
   name: 'PlayerSmall',
   components: { IonIcon },
   props: {
-    isColapsed:{
+    isCollapsed:{
       type: Boolean,
       required: true
     },
