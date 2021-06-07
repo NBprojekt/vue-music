@@ -24,6 +24,7 @@ import {
 import { playerService } from '@/services/player.service';
 
 import SongsModal from '../song-modal/song.modal.vue';
+import { Song } from '@/types/song.type';
 
 export default defineComponent({
   name: 'PlayerModal',
@@ -37,8 +38,6 @@ export default defineComponent({
     IonRange,
   },
   setup() {
-    const currentSong = playerService.getCurrentSong();
-
     return {
       chevronDownOutline,
       ellipsisHorizontalOutline,
@@ -48,17 +47,31 @@ export default defineComponent({
       pauseCircle,
       playSkipForwardOutline,
       repeatOutline,
-      currentSong,
     }
+  },
+  created() {
+    // TODO: Add unsubscribe functionality
+    playerService.getSong().subscribe((_song: Song | null) => {
+      console.log('Fetched song', _song);
+      if (_song) {
+        this.song = _song;
+      }
+    });
+
+    playerService.isPlaying().subscribe(x => this.isPlaying = x);
+    playerService.isShuffling().subscribe(x => this.isShuffling = x);
+    playerService.isRepeating().subscribe(x => this.isRepeating = x);
+    playerService.isRepeatingOnlyOne().subscribe(x => this.isRepeatingOnlyOne = x);
   },
   data() {
     return {
-      isPlaying: false,
-      isShuffling: false,
-      isRepeating: false,
-      isRepeatingOnlyOne: false,
       showUi: true,
       showCanvas: true,
+      isShuffling: false,
+      isPlaying: false,
+      isRepeating: false,
+      isRepeatingOnlyOne: false,
+      song: null as unknown as Song,
     }
   },
   methods: {
@@ -71,35 +84,23 @@ export default defineComponent({
         swipeToClose: true,
         cssClass: 'background-blur fullscreen',
         componentProps: {
-          song: this.currentSong,
+          song: this.song,
         },
       });
       return modal.present();
     },
     toggleUi(): void {
-      if (!this.showCanvas || !this.currentSong.canvas) return;
+      if (!this.showCanvas || !this.song.canvas) return;
       this.showUi = !this.showUi;
     },
+    toggleShuffle(): void {
+      playerService.toggleShuffle();
+    },
     togglePlaying(): void {
-      this.isPlaying = !this.isPlaying;
+      playerService.togglePlaying();
     },
-    toggleShuffle(e: any): void {
-      this.isShuffling = !this.isShuffling;
-      e.target.classList.toggle('active');
-    },
-    toggleRepeat(e: any): void {
-      if (!this.isRepeating) {
-        this.isRepeating = true;
-        e.target.classList.add('active');
-      } else if (!this.isRepeatingOnlyOne) {
-        this.isRepeatingOnlyOne = true;
-        e.target.classList.add('one-more');
-      } else {
-        this.isRepeating = false;
-        e.target.classList.remove('active');
-        this.isRepeatingOnlyOne = false;
-        e.target.classList.remove('one-more');
-      }
+    toggleRepeat(): void {
+      playerService.toggleRepeat();
     },
   },
 });
