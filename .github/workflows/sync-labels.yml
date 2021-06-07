@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - .github/labels.yml
+      - .github/config/labels.yml
       - .github/workflows/label-syncer.yml
 jobs:
   sync-labels:
@@ -16,5 +16,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          manifest: .github/labels.yml
+          manifest: .github/config/labels.yml
           prune: true

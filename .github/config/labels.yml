@@ -1,0 +1,69 @@
+- name: "Cost: L"
+  description: "Will take from 1 - 2 weeks to complete"
+  color: FF8888
+- name: "Cost: M"
+  description: "Will take from 3 - 5 days to complete"
+  color: FF9999
+- name: "Cost: S"
+  description: "Will take up to 2 days to complete"
+  color: FFCCCC
+- name: "Cost: XS"
+  description: "Will take up to half a day to complete"
+  color: FFDDDD
+- name: "Cost: 0"
+  description: "Will take no time. This is a tracking issue"
+  color: FFEEEE
+
+- name: "Needs: Design"
+  description: "The issues needs design work before implementing"
+  color: C513D6
+- name: "Needs: Feedback"
+  description: "The issues needs feedback before implementing"
+  color: C513D6
+- name: "Needs: Investigation"
+  description: "The issues needs investigation before implementing"
+  color: C513D6
+- name: "Needs: More Information"
+  description: "The author needs to provide more information on the issue"
+  color: C513D6
+
+- name: "Resolved: Answered"
+  description: "The question raised by the author has been answered"
+  color: 651ace
+- name: "Resolved: By Design"
+  description: "Resolved as behavior is by design"
+  color: 651ace
+- name: "Resolved: Completed"
+  description: "The issue has been resolved"
+  color: 651ace
+- name: "Resolved: Duplicate"
+  description: "This issue or pull request already exists"
+  color: 651ace
+- name: "Resolved: Wont Fix"
+  description: "The reported behavior will not be changed"
+  color: 651ace
+
+- name: "Dependencies"
+  description: "Pull requests that update a dependency file"
+  color: 0366D6
+- name: "Documentation"
+  description: "Improvements or additions to documentation"
+  color: 0366D6
+
+- name: "todo"
+  description: "Automatically added issue from TODO: comments"
+  color: B7ABED
+
+- name: "Bot"
+  description: "A bot interacted with this issue or pull request"
+  color: 6F57DB
+- name: "CI / CD"
+  description: "Related to continuous integration and delivery"
+  color: 6F57DB
+
+- name: "Security"
+  description: "Pull requests or issues that address a security vulnerability"
+  color: EE0701
+- name: "Bug"
+  description: "Something is not working"
+  color: EE0701
