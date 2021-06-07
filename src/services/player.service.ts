@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 
 
 export class PlayerService {
+  private static _this: PlayerService;
   private currentSong: BehaviorSubject<Song | null>;
 
   private _isPlaying: BehaviorSubject<boolean>;
@@ -10,7 +11,7 @@ export class PlayerService {
   private _isRepeating: BehaviorSubject<boolean>;
   private _isRepeatingOnlyOne: BehaviorSubject<boolean>;
 
-  constructor() {
+  private constructor() {
     this.currentSong = new BehaviorSubject<Song | null>(null);
 
     this._isPlaying = new BehaviorSubject<boolean>(false);
@@ -28,6 +29,14 @@ export class PlayerService {
       image: `${process.env.VUE_APP_BASE_HREF}assets/images/playlist_1.jpg`,
       // canvas: `${process.env.VUE_APP_BASE_HREF}assets/videos/test.gif`,
     });
+  }
+
+  public static getInstance(): PlayerService {
+    if (!this._this) {
+      this._this = new PlayerService();
+    }
+
+    return this._this;
   }
 
   public setSong(song: Song): void {
@@ -69,4 +78,4 @@ export class PlayerService {
   }
 }
 
-export const playerService = new PlayerService();
+export const playerService = PlayerService.getInstance();
