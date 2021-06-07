@@ -13,6 +13,7 @@
       <!-- // TODO: Add camera feed -->
       <div class="camera-feed">
         <video ref="videoElement" playsinline="true" />
+        <canvas ref="canvasElement" hidden />
         <div class="focus">
           <div class="hint">
             Point the camera on the center of the screen
