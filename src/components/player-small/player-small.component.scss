@@ -1,0 +1,59 @@
+$container-height: 60px;
+$progress-height: 3px;
+
+.small-player-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  margin-top: $progress-height;
+  height: $container-height;
+  transition: top .3s;
+  top: 0;
+
+  background-color: var(--ion-tab-bar-background);
+  border-bottom: 1px solid var(--ion-background-color);
+  color: var(--ion-text-color);
+
+  &.colapsed {
+    top: $container-height + $progress-height;
+  }
+
+  .progress-wrapper {
+    position: absolute;
+    top: -$progress-height;
+    width: 100%;
+    height: $progress-height;
+    background: var(--ion-color-medium);
+
+    .progress {
+      height: 100%;
+      background: var(--ion-color-dark-shade);
+    }
+  }
+
+  .image {
+    width: $container-height;
+    height: $container-height;
+    margin-right: 10px;
+  }
+
+  .metadata {
+    flex-grow: 2;
+    font-weight: 600;
+
+    .title {
+      line-height: 1.5rem;
+    }
+
+    .author {
+      color: rgba(var(--ion-text-color-rgb), .5);
+      font-size: .9rem;
+    }
+  }
+
+  .controls {
+    margin-left: 10px;
+    padding-right: 10px;
+  }
+}

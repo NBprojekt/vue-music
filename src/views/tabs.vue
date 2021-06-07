@@ -31,7 +31,7 @@ import { defineComponent } from 'vue';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, modalController } from '@ionic/vue';
 import { home, search, library } from 'ionicons/icons';
 
-import PlayerSmall from '@/components/player-small.component.vue';
+import PlayerSmall from '@/components/player-small/player-small.component.vue';
 import PlayerModal from '@/components/player-modal/player.modal.vue';
 
 export default defineComponent({
