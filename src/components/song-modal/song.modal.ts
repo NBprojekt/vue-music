@@ -69,13 +69,8 @@ export default defineComponent({
       modalController.dismiss();
     },
     toggleShuffle(e: any): void {
-      console.log(e.path);
-      console.log(e.path[4]);
-      console.log(typeof e.path[4]);
-
       this.isShuffling = !this.isShuffling;
       e.target.classList.toggle('active');
-      console.log('Toggle shuffle', this.isShuffling);
     },
     toggleRepeat(e: any): void {
       if (!this.isRepeating) {
@@ -90,7 +85,6 @@ export default defineComponent({
         this.isRepeatingOnlyOne = false;
         e.target.classList.remove('one-more');
       }
-      console.log('Toggle repeat', [this.isRepeating, this.isRepeatingOnlyOne]);
     },
   },
 });

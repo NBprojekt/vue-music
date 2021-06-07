@@ -51,8 +51,6 @@ export default defineComponent({
   },
   methods: {
     async openPlayer() {
-      console.log('Opening player');
-
       const modal = await modalController.create({
         component: PlayerModal,
         swipeToClose: true,

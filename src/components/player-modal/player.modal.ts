@@ -66,8 +66,6 @@ export default defineComponent({
       modalController.dismiss();
     },
     async openOptions(): Promise<void> {
-      console.log('Open options');
-
       const modal = await modalController.create({
         component: SongsModal,
         swipeToClose: true,
@@ -81,16 +79,13 @@ export default defineComponent({
     toggleUi(): void {
       if (!this.showCanvas || !this.currentSong.canvas) return;
       this.showUi = !this.showUi;
-      console.log('Show ui', this.showUi);
     },
     togglePlaying(): void {
       this.isPlaying = !this.isPlaying;
-      console.log('Toggle playing', this.isPlaying);
     },
     toggleShuffle(e: any): void {
       this.isShuffling = !this.isShuffling;
       e.target.classList.toggle('active');
-      console.log('Toggle shuffle', this.isShuffling);
     },
     toggleRepeat(e: any): void {
       if (!this.isRepeating) {
@@ -105,7 +100,6 @@ export default defineComponent({
         this.isRepeatingOnlyOne = false;
         e.target.classList.remove('one-more');
       }
-      console.log('Toggle repeat', [this.isRepeating, this.isRepeatingOnlyOne]);
     },
   },
 });

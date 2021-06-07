@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    
+
     <ion-content :fullscreen="true">
       <ion-header>
         <ion-toolbar class="tab-toolbar">
@@ -9,7 +9,7 @@
           <ion-icon :icon="addOutline" size="large" slot="end" />
         </ion-toolbar>
       </ion-header>
-    
+
       <div class="static-segments">
         <ion-segment @ionChange="segmentChanged($event)" :value="selectedTab">
           <ion-segment-button value="0">
@@ -78,7 +78,6 @@ export default defineComponent({
   methods: {
     segmentChanged(event: CustomEvent) {
       this.selectedTab = event.detail.value;
-      console.log(`Selected tab changed: ${this.selectedTab}`, event);
     }
   }
 });
