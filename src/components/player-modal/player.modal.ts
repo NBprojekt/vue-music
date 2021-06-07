@@ -21,9 +21,10 @@ import {
   repeatOutline,
 } from 'ionicons/icons';
 
-import { playerService } from '@/services/player.service';
 
 import SongsModal from '../song-modal/song.modal.vue';
+
+import { playerService } from '@/services/player.service';
 import { Song } from '@/types/song.type';
 
 export default defineComponent({
@@ -55,6 +56,8 @@ export default defineComponent({
       console.log('Fetched song', _song);
       if (_song) {
         this.song = _song;
+      } else {
+        this.dismissModal();
       }
     });
 
