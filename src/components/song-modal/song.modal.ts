@@ -23,7 +23,10 @@ import {
   personOutline,
   peopleOutline,
 } from 'ionicons/icons';
+
 import { Song } from '@/types/song.type';
+
+import { playerService } from '@/services/player.service';
 
 export default defineComponent({
   name: 'SongModal',
@@ -57,6 +60,11 @@ export default defineComponent({
       peopleOutline,
     }
   },
+  created() {
+    playerService.isShuffling().subscribe(x => this.isShuffling = x);
+    playerService.isRepeating().subscribe(x => this.isRepeating = x);
+    playerService.isRepeatingOnlyOne().subscribe(x => this.isRepeatingOnlyOne = x);
+  },
   data() {
     return {
       isShuffling: false,
@@ -68,23 +76,11 @@ export default defineComponent({
     dismissModal(): void {
       modalController.dismiss();
     },
-    toggleShuffle(e: any): void {
-      this.isShuffling = !this.isShuffling;
-      e.target.classList.toggle('active');
+    toggleShuffle(): void {
+      playerService.toggleShuffle();
     },
-    toggleRepeat(e: any): void {
-      if (!this.isRepeating) {
-        this.isRepeating = true;
-        e.target.classList.add('active');
-      } else if (!this.isRepeatingOnlyOne) {
-        this.isRepeatingOnlyOne = true;
-        e.target.classList.add('one-more');
-      } else {
-        this.isRepeating = false;
-        e.target.classList.remove('active');
-        this.isRepeatingOnlyOne = false;
-        e.target.classList.remove('one-more');
-      }
+    toggleRepeat(): void {
+      playerService.toggleRepeat();
     },
   },
 });
