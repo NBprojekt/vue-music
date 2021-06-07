@@ -5,7 +5,7 @@
         <ion-icon :icon="chevronDownOutline" size="large" @click="dismissModal()" />
       </ion-buttons>
 
-      <ion-title> Playlist name </ion-title>
+      <ion-title> {{ song?.playlist ?? song.author }} </ion-title>
 
       <ion-buttons slot="end">
         <ion-icon :icon="ellipsisHorizontalOutline" size="large" @click="openOptions()" />
