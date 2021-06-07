@@ -2,7 +2,10 @@ import { defineComponent } from 'vue';
 
 import { IonIcon, } from '@ionic/vue';
 import { playOutline, pauseOutline } from 'ionicons/icons';
+
 import { Song } from '@/types/song.type';
+
+import { playerService } from '@/services/player.service';
 
 export default defineComponent({
   name: 'PlayerSmall',
@@ -19,6 +22,13 @@ export default defineComponent({
       pauseOutline,
     }
   },
+  created() {
+    playerService.getSong().subscribe((_song: Song | null) => {
+      if (_song) {
+        this.song = _song;
+      }
+    });
+  },
   data() {
     return {
       progress: 50,
@@ -29,6 +39,6 @@ export default defineComponent({
   methods: {
     togglePlayState(): void {
       this.isPlaying = !this.isPlaying;
-    }
+    },
   }
 });
