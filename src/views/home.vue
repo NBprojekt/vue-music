@@ -1,11 +1,9 @@
 <template>
   <ion-page>
-    
-    <ion-content :fullscreen="true">
       <ion-header>
         <ion-toolbar class="tab-toolbar">
           <ion-title size="large"> {{ greeting }} </ion-title>
-        
+
           <ion-buttons slot="end">
             <ion-button router-link="/history" routerDirection="forward" color="dark">
               <ion-icon :icon="timeOutline" size="large" />
@@ -17,8 +15,9 @@
         </ion-toolbar>
       </ion-header>
 
+    <ion-content :fullscreen="true">
       <playlist-grid :playlists="playlists"/>
-      
+
     </ion-content>
 
   </ion-page>
@@ -54,7 +53,7 @@ export default defineComponent({
     this.playlists = await dataService.getPlaylists();
 
     const hours = new Date().getHours();
-     
+
     if (hours > 18) {
       this.greeting = 'Good Evening';
     } else if (hours > 12) {
